@@ -1,49 +1,45 @@
-import React, { useEffect, useState, useMemo } from "react";
 import {
-  Box,
-  Typography,
+  Add,
+  Delete,
+  Edit,
+  MoreVert,
+  Schedule
+} from "@mui/icons-material";
+import {
   Avatar,
+  Box,
+  Button,
+  Dialog,
+  DialogActions,
+  DialogContent,
+  DialogTitle,
+  IconButton,
+  Menu,
+  MenuItem,
+  Paper,
   Table,
   TableBody,
   TableCell,
   TableContainer,
   TableHead,
+  TablePagination,
   TableRow,
-  Paper,
-  Button,
-  IconButton,
-  Toolbar,
-  Tooltip,
-  Menu,
-  MenuItem,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  DialogActions,
-  TextField,
-  Select,
-  Badge,
   TableSortLabel,
-  TablePagination, // Import TablePagination
+  TextField,
+  Toolbar,
+  Typography
 } from "@mui/material";
-import {
-  Add,
-  FilterList,
-  MoreVert,
-  Edit,
-  Delete,
-  Schedule,
-} from "@mui/icons-material";
 import { styled } from "@mui/system";
-import { Link } from "react-router-dom";
+import moment from "moment/moment";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { toast } from "react-toastify";
 import {
+  deleteProduct,
   getProducts,
   updateProductStatus,
-  deleteProduct,
 } from "../../Redux/Slice/crudSlice";
-import moment from "moment/moment";
-import { toast } from "react-toastify";
 
 // Define a styled component for the "On Deal" badge
 const DealBadge = styled("div")(({ theme }) => ({
