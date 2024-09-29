@@ -290,7 +290,7 @@ const AddProduct = () => {
                 type="file"
                 multiple
                 hidden
-                accept="image/*"
+                accept=".jpg, .jpeg, .png, .gif"
                 onChange={handleImageChange}
               />
             </Button>
