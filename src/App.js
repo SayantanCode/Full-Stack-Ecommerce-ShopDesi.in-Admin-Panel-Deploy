@@ -102,10 +102,10 @@ export const darkTheme = createTheme({
   },
 });
 const ProtectedRoute = ({ children }) => {
-  const token = sessionStorage.getItem("token"); // Retrieve token from session storage
+  const token = sessionStorage.getItem("token") || localStorage.getItem("token"); // Retrieve token from session storage
   if (!token) {
     // If there's no token, redirect to login
-    return <Navigate to="/admin" />;
+    return <Navigate to="/" />;
   }
 
   return children; // If authenticated, return the children components
@@ -122,7 +122,7 @@ const App = () => {
     }, 2000); // Simulate a 2-second loading time
   }, []);
   useEffect(() => {
-    if(window.location.pathname === "/") {
+    if(window.location.pathname === "/" || window.location.pathname !== "/admin") {
       window.location.pathname = "/admin"
     }
   }, [])
@@ -147,20 +147,20 @@ const App = () => {
           {loading ? (
             <Loader />
           ) : (
-            <BrowserRouter>
+            <BrowserRouter basename="/admin">
               <Routes>
-                <Route path="/admin" element={<LoginPage themeMode={themeMode} toggleTheme={toggleTheme} />} />
+                <Route path="/" element={<LoginPage themeMode={themeMode} toggleTheme={toggleTheme} />} />
                 <Route
-                  path="/admin/*"
+                  path="/*"
                   element={
                     <ProtectedRoute>
                       <Layout themeMode={themeMode} toggleTheme={toggleTheme}>
                       <Routes>
-                        <Route path="dashboard" element={<DashboardPage />} />
-                        <Route path="carousel" element={<CarouselPage />} />
-                        <Route path="products" element={<ProductPage />} />
-                        <Route path="deals" element={<DealsPage />} />
-                        <Route path="products/add" element={<AddProduct />} />
+                        <Route path="/dashboard" element={<DashboardPage />} />
+                        <Route path="/carousel" element={<CarouselPage />} />
+                        <Route path="/products" element={<ProductPage />} />
+                        <Route path="/deals" element={<DealsPage />} />
+                        <Route path="/products/add" element={<AddProduct />} />
                         <Route path="products/:product_id/edit" element={<EditProduct />} />
                         <Route path="brands" element={<BrandManagement />} />
                         <Route path="categories" element={<CategoryManagement />} />
@@ -169,7 +169,7 @@ const App = () => {
                         <Route path="analytics" element={<AnalyticsPage />} />
                         <Route path="customers" element={<CustomersPage />} />
                         <Route path="reviews" element={<ReviewPage/>} />
-                        <Route path="*" element={<NotFoundPage />} />
+                        {/* <Route path="*" element={<NotFoundPage />} /> */}
                         {/* <Route path="blogs" element={<BlogListPage />} /> */}
                         {/* <Route path="blogs/add" element={<AddBlog />} /> */}
                         <Route path="profile" element={<AdminProfile />} />

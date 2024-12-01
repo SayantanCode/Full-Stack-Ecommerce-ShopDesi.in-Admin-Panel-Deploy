@@ -5,7 +5,7 @@ const NotFoundPage = () => {
   const navigate = useNavigate();
 
   const handleGoHome = () => {
-    navigate('/admin/dashboard'); //navigate to home page
+    navigate('/dashboard'); //navigate to home page
   };
 
   return (

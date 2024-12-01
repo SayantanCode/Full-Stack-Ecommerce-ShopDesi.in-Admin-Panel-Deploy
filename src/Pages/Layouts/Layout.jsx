@@ -70,52 +70,52 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
   }, [location]);
   useEffect(() => {
     switch (location.pathname) {
-      case "/admin/profile":
+      case "/profile":
         setAppBarText("Profile");
         break;
-      case "/admin/dashboard":
+      case "/dashboard":
         setAppBarText("Dashboard");
         break;
-      case "/admin/carousel":
+      case "/carousel":
         setAppBarText("Carousel");
         break;
-      case "/admin/orders":
+      case "/orders":
         setAppBarText("Orders");
         break;
-      case "/admin/products":
+      case "/products":
         setAppBarText("Products");
         break;
-      case "/admin/deals":
+      case "/deals":
         setAppBarText("Deals");
         break;
-      case "/admin/products/add":
+      case "/products/add":
         setAppBarText("Add Product");
         break;
       case `${location.pathname.match(/\/admin\/products\/\w+/)}/edit`:
         setAppBarText("Edit Product");
         break;
-      case "/admin/brands":
+      case "/brands":
         setAppBarText("Brands");
         break;
-      case "/admin/categories":
+      case "/categories":
         setAppBarText("Categories");
         break;
-      case "/admin/sub-categories":
+      case "/sub-categories":
         setAppBarText("Sub Categories");
         break;
-      // case "/admin/categories/add":
+      // case "/categories/add":
       //   setAppBarText("Add Category");
       //   break;
       // case `${location.pathname.match(/\/admin\/categories\/\w+/)}/edit`:
       //   setAppBarText("Edit Category");
       //   break;
-      case "/admin/customers":
+      case "/customers":
         setAppBarText("Customers");
         break;
-      case "/admin/analytics":
+      case "/analytics":
         setAppBarText("Analytics");
         break;
-      case "/admin/reviews":
+      case "/reviews":
         setAppBarText("Reviews");
         break;
       // case "/admin/blogs":
@@ -145,7 +145,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
   const handleLogout = () => {
     localStorage.clear();
     sessionStorage.clear();
-    navigate("/admin");
+    navigate("/");
   }
   const DynamicNavLink = (props) => {
     return (
@@ -212,7 +212,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </Badge>
           </IconButton> */}
           {/* <NotificationMenu /> */}
-          <DynamicNavLink to="/admin/profile">
+          <DynamicNavLink to="/profile">
             <IconButton color="inherit">
               <AccountCircle />
             </IconButton>
@@ -268,7 +268,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
           </IconButton>
         </Box>
         <Divider sx={{ mt: 1 }} />
-        <DynamicNavLink to="/admin/dashboard">
+        <DynamicNavLink to="/dashboard">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Dashboard" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -290,7 +290,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/carousel">
+          <DynamicNavLink to="/carousel">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Carousel" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -312,7 +312,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/products">
+          <DynamicNavLink to="/products">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Products" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -334,7 +334,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/deals">
+          <DynamicNavLink to="/deals">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Deals" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -356,7 +356,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/orders">
+          <DynamicNavLink to="/orders">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Orders" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -378,7 +378,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/brands">
+          <DynamicNavLink to="/brands">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Brands" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -400,7 +400,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/categories">
+          <DynamicNavLink to="/categories">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Categories" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -422,7 +422,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/sub-categories">
+          <DynamicNavLink to="/sub-categories">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Sub Categories" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -444,7 +444,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/customers">
+          <DynamicNavLink to="/customers">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Customers" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -466,7 +466,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/analytics">
+          <DynamicNavLink to="/analytics">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Analytics" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>
@@ -488,7 +488,7 @@ const Layout = ({ children, themeMode, toggleTheme }) => {
             </ListItem>
           </DynamicNavLink>
           <Divider />
-          <DynamicNavLink to="/admin/reviews">
+          <DynamicNavLink to="/reviews">
             <ListItem components={<Button />} sx={{ overflowX: "hidden", backgroundColor:"inherit" }}>
               <Tooltip title="Reviews" placement="bottom">
                 <ListItemIcon sx={{ color: "inherit" }}>

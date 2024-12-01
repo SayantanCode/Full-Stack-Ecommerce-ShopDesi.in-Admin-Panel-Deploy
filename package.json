@@ -2,7 +2,6 @@
   "name": "e_commerce_app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "/admin",
   "dependencies": {
     "@ckeditor/ckeditor5-react": "^9.0.0",
     "@date-io/date-fns": "^3.0.0",

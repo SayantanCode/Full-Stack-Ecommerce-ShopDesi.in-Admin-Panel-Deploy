@@ -37,7 +37,7 @@ const LoginPage = ({ themeMode, toggleTheme }) => {
   const dispatch = useDispatch();
   const { loading } = useSelector((state) => state.Auth);
   useEffect(() => {
-    if(sessionStorage.getItem("token")) navigate("/admin/dashboard");
+    if(sessionStorage.getItem("token")) navigate("/dashboard");
   },[])
   const navigate = useNavigate();
   const [email, setEmail] = useState("");
@@ -71,7 +71,7 @@ const LoginPage = ({ themeMode, toggleTheme }) => {
         sessionStorage.setItem("token", response.data.token);
         setTimeout(() => {
           toast.dismiss();
-          navigate("/admin/dashboard");
+          navigate("/dashboard");
         }, 3000);
       })
       .catch((error) => {
