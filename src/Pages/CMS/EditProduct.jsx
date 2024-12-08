@@ -125,7 +125,7 @@ const EditProduct = () => {
       }
       else{
         toast.success(res.message)
-        setTimeout(() => navigate("/admin/products"), 3000)
+        setTimeout(() => navigate("/products"), 3000)
       }
     })
     // Submit formData via API
