@@ -485,7 +485,7 @@ const ProductPage = () => {
                           </Menu>
                         )}
                         <Link
-                          to={`/admin/products/${product._id}/edit`}
+                          to={`/products/${product._id}/edit`}
                           style={{ textDecoration: "none", color: "inherit" }}
                         >
                           <MenuItem>
